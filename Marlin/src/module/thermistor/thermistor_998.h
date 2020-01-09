@@ -22,12 +22,15 @@
 #pragma once
 
 // User-defined table 1
-// Dummy Thermistor table.. It will ALWAYS read a fixed value.
-#ifndef DUMMY_THERMISTOR_998_VALUE
-  #define DUMMY_THERMISTOR_998_VALUE 25
-#endif
-
+// My PT100 calibrated
 const temp_entry_t temptable_998[] PROGMEM = {
-  { OV(   1), DUMMY_THERMISTOR_998_VALUE },
-  { OV(1023), DUMMY_THERMISTOR_998_VALUE }
+  { OV( 245),   0 },
+  { OV( 287),  50 },
+  { OV( 327), 100 },
+  { OV( 366), 150 },
+  { OV( 403), 200 },
+  { OV( 439), 250 },
+  { OV( 473), 300 },  // Interpolated
+  { OV( 505), 350 },  // Interpolated
+  { OV( 536), 400 }   // Interpolated
 };
