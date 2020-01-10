@@ -2444,7 +2444,7 @@ static_assert(   _ARR_TEST(3,0) && _ARR_TEST(3,1) && _ARR_TEST(3,2)
   #define _PIN_CONFLICT(P) (PIN_EXISTS(P) && P##_PIN == SPINDLE_LASER_PWM_PIN)
   #if BOTH(SPINDLE_FEATURE, LASER_FEATURE)
     #error "Enable only one of SPINDLE_FEATURE or LASER_FEATURE."
-  #elif !PIN_EXISTS(SPINDLE_LASER_ENA)
+  #elif !PIN_EXISTS(SPINDLE_LASER_ENA) && DISABLED(SPINDLE_LASER_PWM)
     #error "(SPINDLE|LASER)_FEATURE requires SPINDLE_LASER_ENA_PIN."
   #elif ENABLED(SPINDLE_CHANGE_DIR) && !PIN_EXISTS(SPINDLE_DIR)
     #error "SPINDLE_DIR_PIN is required for SPINDLE_CHANGE_DIR."
@@ -2453,10 +2453,6 @@ static_assert(   _ARR_TEST(3,0) && _ARR_TEST(3,1) && _ARR_TEST(3,2)
       #error "SPINDLE_LASER_PWM_PIN is required for SPINDLE_LASER_PWM."
     #elif !PWM_PIN(SPINDLE_LASER_PWM_PIN)
       #error "SPINDLE_LASER_PWM_PIN not assigned to a PWM pin."
-    #elif SPINDLE_LASER_POWERUP_DELAY < 1
-      #error "SPINDLE_LASER_POWERUP_DELAY must be greater than 0."
-    #elif SPINDLE_LASER_POWERDOWN_DELAY < 1
-      #error "SPINDLE_LASER_POWERDOWN_DELAY must be greater than 0."
     #elif !defined(SPINDLE_LASER_PWM_INVERT)
       #error "SPINDLE_LASER_PWM_INVERT is required for (SPINDLE|LASER)_FEATURE."
     #elif !defined(SPEED_POWER_SLOPE) || !defined(SPEED_POWER_INTERCEPT) || !defined(SPEED_POWER_MIN) || !defined(SPEED_POWER_MAX)

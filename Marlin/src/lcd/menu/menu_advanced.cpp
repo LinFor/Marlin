@@ -39,7 +39,7 @@
   #include "../../module/probe.h"
 #endif
 
-#if ENABLED(PIDTEMP)
+#if HAS_PID_HEATING
   #include "../../module/temperature.h"
 #endif
 

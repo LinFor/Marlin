@@ -37,7 +37,9 @@ cutter_power_t SpindleLaser::power; // = 0
 #define SPINDLE_LASER_PWM_OFF ((SPINDLE_LASER_PWM_INVERT) ? 255 : 0)
 
 void SpindleLaser::init() {
-  OUT_WRITE(SPINDLE_LASER_ENA_PIN, !SPINDLE_LASER_ACTIVE_HIGH); // Init spindle to off
+  #if PIN_EXISTS(SPINDLE_LASER_ENA) || DISABLED(SPINDLE_LASER_PWM)
+    OUT_WRITE(SPINDLE_LASER_ENA_PIN, !SPINDLE_LASER_ACTIVE_HIGH); // Init spindle to off
+  #endif
   #if ENABLED(SPINDLE_CHANGE_DIR)
     OUT_WRITE(SPINDLE_DIR_PIN, SPINDLE_INVERT_DIR ? 255 : 0);   // Init rotation to clockwise (M3)
   #endif
@@ -55,7 +57,9 @@ void SpindleLaser::init() {
    * it accepts inputs of 0-255
    */
   void SpindleLaser::set_ocr(const uint8_t ocr) {
-    WRITE(SPINDLE_LASER_ENA_PIN, SPINDLE_LASER_ACTIVE_HIGH); // turn spindle on (active low)
+    #if PIN_EXISTS(SPINDLE_LASER_ENA)
+      WRITE(SPINDLE_LASER_ENA_PIN, SPINDLE_LASER_ACTIVE_HIGH); // turn spindle on (active low)
+    #endif
     analogWrite(pin_t(SPINDLE_LASER_PWM_PIN), ocr ^ SPINDLE_LASER_PWM_OFF);
   }
 
@@ -78,7 +82,9 @@ void SpindleLaser::apply_power(const cutter_power_t inpow) {
       set_ocr(ocr_val & 0xFF);                                    // ...limited to Atmel PWM max
     }
     else {
-      WRITE(SPINDLE_LASER_ENA_PIN, !SPINDLE_LASER_ACTIVE_HIGH);   // Turn spindle off (active low)
+      #if PIN_EXISTS(SPINDLE_LASER_ENA)
+        WRITE(SPINDLE_LASER_ENA_PIN, !SPINDLE_LASER_ACTIVE_HIGH);   // Turn spindle off (active low)
+      #endif
       analogWrite(pin_t(SPINDLE_LASER_PWM_PIN), SPINDLE_LASER_PWM_OFF);  // Only write low byte
     }
   #else

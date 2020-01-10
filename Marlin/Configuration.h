@@ -134,11 +134,12 @@
 
   // Override some pinouts
   #define NUM_SERVOS         0
-  #define HEATER_BED_PIN     P2_03 // FAN
-  #define HEATER_0_PIN       P2_05 // BED
-  #define FAN_PIN            P2_00 // SERVO
-  #define FAN1_PIN           P2_04 // HE1
-  #define CASE_LIGHT_PIN     P2_07 // HE0
+  #define SPINDLE_LASER_PWM_PIN P2_00 // SERVO
+  // #define HEATER_BED_PIN     P2_03 // FAN
+  // #define HEATER_0_PIN       P2_05 // BED
+  // #define FAN_PIN            P2_00 // SERVO
+  // #define FAN1_PIN           P2_04 // HE1
+  // #define CASE_LIGHT_PIN     P2_07 // HE0
 
   #define BOGUS_TEMPERATURE_GRACE_PERIOD 2000
 #endif
@@ -154,7 +155,7 @@
 
 // This defines the number of extruders
 // :[1, 2, 3, 4, 5, 6]
-#define EXTRUDERS 1
+#define EXTRUDERS 0
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
@@ -468,7 +469,7 @@
 // PID Tuning Guide here: http://reprap.org/wiki/PID_Tuning
 
 // Comment the following line to disable PID and enable bang-bang.
-#define PIDTEMP
+//#define PIDTEMP
 #define BANG_MAX 255     // Limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
@@ -524,7 +525,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-#define PIDTEMPBED
+//#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -596,9 +597,9 @@
  * details can be tuned in Configuration_adv.h
  */
 
-#define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
-#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
-#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
+//#define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
+//#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+//#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
 
 //===========================================================================
 //============================= Mechanical Settings =========================
