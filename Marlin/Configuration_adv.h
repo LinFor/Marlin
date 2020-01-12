@@ -43,9 +43,9 @@
 // Custom Thermistor 1000 parameters
 //
 #if TEMP_SENSOR_0 == 1000
-  #define HOTEND0_PULLUP_RESISTOR_OHMS 4700    // Pullup resistor
-  #define HOTEND0_RESISTANCE_25C_OHMS  100000  // Resistance at 25C
-  #define HOTEND0_BETA                 3950    // Beta value
+  #define HOTEND0_PULLUP_RESISTOR_OHMS 3200    // Pullup resistor
+  #define HOTEND0_RESISTANCE_25C_OHMS  10000   // Resistance at 25C
+  #define HOTEND0_BETA                 3435    // Beta value
 #endif
 
 #if TEMP_SENSOR_1 == 1000
@@ -79,12 +79,9 @@
 #endif
 
 #if TEMP_SENSOR_BED == 1000
-// ./createTemperatureLookupMarlin.py --rp=4700 --t1=26.2:93520.40816326541 --t2=72.6:15105.761316872424 --t3=130.5:2773.2919254658386 --num-temps=36
-// Steinhart-Hart Coefficients: a=0.000552109686762688, b=0.00024214465386724, c=1.12632916408875e-08
-// Calculated β model coefficients: R(25°C) = 98775.67 Ω, β = 4066.59 K
-  #define BED_PULLUP_RESISTOR_OHMS     4700    // Pullup resistor
-  #define BED_RESISTANCE_25C_OHMS     98775.67 // Resistance at 25C
-  #define BED_BETA                     4066.59 // Beta value
+  #define BED_PULLUP_RESISTOR_OHMS     3200 // Pullup resistor
+  #define BED_RESISTANCE_25C_OHMS     10000 // Resistance at 25C
+  #define BED_BETA                     3435 // Beta value
 #endif
 
 #if TEMP_SENSOR_CHAMBER == 1000
