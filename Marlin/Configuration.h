@@ -139,6 +139,13 @@
   #define CASE_LIGHT_PIN     P2_07 // HE0
 
   #define BOGUS_TEMPERATURE_GRACE_PERIOD 2000
+
+  // #define DOGLCD_SCK EXPA1_06_PIN
+  // #define DOGLCD_MOSI EXPA1_08_PIN
+  // #define LCD_PINS_RS EXPA1_04_PIN
+  // #define DOGLCD_A0 EXPA1_05_PIN
+  // #define LCD_PINS_DC EXPA1_05_PIN
+  // #define DOGLCD_CS EXPA1_07_PIN
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -2026,7 +2033,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // ReprapWorld Graphical LCD
@@ -2170,7 +2177,7 @@
 //
 // Tiny, but very sharp OLED display
 //
-//#define MKS_12864OLED          // Uses the SH1106 controller (default)
+#define MKS_12864OLED            // Uses the SH1106 controller (default)
 //#define MKS_12864OLED_SSD1306  // Uses the SSD1306 controller
 
 //

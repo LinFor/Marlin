@@ -275,8 +275,7 @@
     #define SD_DETECT_PIN           EXPA2_04_PIN
 
   #else                                           // !CR10_STOCKDISPLAY
-
-    #define LCD_PINS_RS             EXPA1_07_PIN
+    //#define LCD_PINS_RS             EXPA1_07_PIN
 
     #define BTN_EN1                 EXPA2_08_PIN  // (31) J3-2 & AUX-4
     #define BTN_EN2                 EXPA2_06_PIN  // (33) J3-4 & AUX-4
@@ -287,6 +286,13 @@
 
     #define LCD_SDSS                EXPA2_07_PIN  // (16) J3-7 & AUX-4
     #define SD_DETECT_PIN           EXPA2_04_PIN  // (49) (NOT 5V tolerant)
+
+    #define DOGLCD_SCK EXPA1_06_PIN
+    #define DOGLCD_MOSI EXPA1_08_PIN
+    #define LCD_PINS_RS EXPA1_04_PIN
+    #define DOGLCD_A0 EXPA1_05_PIN
+    #define LCD_PINS_DC EXPA1_05_PIN
+    #define DOGLCD_CS EXPA1_07_PIN
 
     #if ENABLED(FYSETC_MINI_12864)
       #define DOGLCD_CS             EXPA1_08_PIN
