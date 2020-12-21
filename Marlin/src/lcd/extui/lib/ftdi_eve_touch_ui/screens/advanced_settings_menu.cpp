@@ -119,7 +119,7 @@ void AdvancedSettingsMenu::onRedraw(draw_mode_t what) {
 bool AdvancedSettingsMenu::onTouchEnd(uint8_t tag) {
   switch (tag) {
     case  1: SaveSettingsDialogBox::promptToSaveSettings(); break;
-    #if HAS_BED_PROBE
+    #if BOTH(HAS_LEVELING, HAS_BED_PROBE)
     case  2: GOTO_SCREEN(ZOffsetScreen);              break;
     #endif
     case  3: GOTO_SCREEN(StepsScreen);                break;

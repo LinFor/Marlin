@@ -55,12 +55,12 @@ enum {
   DEFAULT_ACCELERATION_SCREEN_CACHE,
   #if HAS_LEVELING
     LEVELING_SCREEN_CACHE,
-    #if HAS_BED_PROBE
-      ZOFFSET_SCREEN_CACHE,
-    #endif
     #if HAS_MESH
       BED_MESH_SCREEN_CACHE,
     #endif
+  #endif
+  #if HAS_BED_PROBE
+    ZOFFSET_SCREEN_CACHE,
   #endif
   #if ENABLED(BABYSTEPPING)
     ADJUST_OFFSETS_SCREEN_CACHE,
@@ -514,14 +514,6 @@ class StepsScreen : public BaseNumericAdjustmentScreen, public CachedScreen<STEP
       static bool onTouchEnd(uint8_t tag);
   };
 
-  #if HAS_BED_PROBE
-    class ZOffsetScreen : public BaseNumericAdjustmentScreen, public CachedScreen<ZOFFSET_SCREEN_CACHE> {
-      public:
-        static void onRedraw(draw_mode_t);
-        static bool onTouchHeld(uint8_t tag);
-    };
-  #endif
-
   #if HAS_MESH
 
     class BedMeshScreen : public BaseScreen, public CachedScreen<BED_MESH_SCREEN_CACHE> {
@@ -555,6 +547,14 @@ class StepsScreen : public BaseNumericAdjustmentScreen, public CachedScreen<STEP
   #endif // HAS_MESH
 
 #endif // HAS_LEVELING
+
+#if HAS_BED_PROBE
+  class ZOffsetScreen : public BaseNumericAdjustmentScreen, public CachedScreen<ZOFFSET_SCREEN_CACHE> {
+    public:
+      static void onRedraw(draw_mode_t);
+      static bool onTouchHeld(uint8_t tag);
+  };
+#endif
 
 #if ENABLED(BABYSTEPPING)
   class NudgeNozzleScreen : public BaseNumericAdjustmentScreen, public CachedScreen<ADJUST_OFFSETS_SCREEN_CACHE> {
