@@ -985,11 +985,11 @@ void Temperature::min_temp_error(const heater_id_t heater_id) {
       const float max_power_over_i_gain = float(MAX_BED_POWER) / temp_bed.pid.Ki - float(MIN_BED_POWER),
                   pid_error = temp_bed.target - temp_bed.celsius;
 
-      if (!temp_bed.target || pid_error < -(PID_FUNCTIONAL_RANGE)) {
+      if (!temp_bed.target || pid_error < -(PID_BED_FUNCTIONAL_RANGE)) {
         pid_output = 0;
         pid_reset = true;
       }
-      else if (pid_error > PID_FUNCTIONAL_RANGE) {
+      else if (pid_error > PID_BED_FUNCTIONAL_RANGE) {
         pid_output = MAX_BED_POWER;
         pid_reset = true;
       }

@@ -139,9 +139,9 @@
 
 // Dummies for dev testing
 #elif THERMISTOR_ID == 998
-  #define THERMISTOR_NAME "Dummy 1"
+  #define THERMISTOR_NAME "PT100 calibrated"
 #elif THERMISTOR_ID == 999
-  #define THERMISTOR_NAME "Dummy 2"
+  #define THERMISTOR_NAME "Bed calibrated"
 #elif THERMISTOR_ID == 1000
   #define THERMISTOR_NAME "Custom"
 
