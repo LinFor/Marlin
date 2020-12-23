@@ -386,10 +386,10 @@
 
 // Calibration for AD595 / AD8495 sensor to adjust temperature measurements.
 // The final temperature is calculated as (measuredTemp * GAIN) + OFFSET.
-#define TEMP_SENSOR_AD595_OFFSET  0.0
-#define TEMP_SENSOR_AD595_GAIN    1.0
-#define TEMP_SENSOR_AD8495_OFFSET 0.0
-#define TEMP_SENSOR_AD8495_GAIN   1.0
+#define TEMP_SENSOR_AD595_OFFSET     0.0
+#define TEMP_SENSOR_AD595_GAIN       1.0
+#define TEMP_SENSOR_AD8495_OFFSET -250.0
+#define TEMP_SENSOR_AD8495_GAIN      1.0
 
 /**
  * Controller Fan
@@ -1518,7 +1518,7 @@
   //#define LCD_HAOYU_FT800CB         // Haoyu with 4.3" or 5" (480x272)
   //#define LCD_HAOYU_FT810CB         // Haoyu with 5" (800x480)
   //#define LCD_ALEPHOBJECTS_CLCD_UI  // Aleph Objects Color LCD UI
-  //#define LCD_FYSETC_TFT81050       // FYSETC with 5" (800x480)
+  #define LCD_FYSETC_TFT81050         // FYSETC with 5" (800x480)
 
   // Correct the resolution if not using the stock TFT panel.
   //#define TOUCH_UI_320x240
@@ -1529,7 +1529,7 @@
   //#define AO_EXP1_PINMAP      // AlephObjects CLCD UI EXP1 mapping
   //#define AO_EXP2_PINMAP      // AlephObjects CLCD UI EXP2 mapping
   //#define CR10_TFT_PINMAP     // Rudolph Riedel's CR10 pin mapping
-  //#define S6_TFT_PINMAP       // FYSETC S6 pin mapping
+  #define S6_TFT_PINMAP         // FYSETC S6 pin mapping
   //#define F6_TFT_PINMAP       // FYSETC F6 pin mapping
 
   //#define OTHER_PIN_LAYOUT  // Define pins manually below
@@ -1551,12 +1551,12 @@
   // is supported on the FT800. The FT810 and beyond also support
   // portrait and mirrored orientations.
   //#define TOUCH_UI_INVERTED
-  //#define TOUCH_UI_PORTRAIT
+  #define TOUCH_UI_PORTRAIT
   //#define TOUCH_UI_MIRRORED
 
   // UTF8 processing and rendering.
   // Unsupported characters are shown as '?'.
-  //#define TOUCH_UI_USE_UTF8
+  #define TOUCH_UI_USE_UTF8
   #if ENABLED(TOUCH_UI_USE_UTF8)
     // Western accents support. These accented characters use
     // combined bitmaps and require relatively little storage.
@@ -1564,28 +1564,28 @@
     #if ENABLED(TOUCH_UI_UTF8_WESTERN_CHARSET)
       // Additional character groups. These characters require
       // full bitmaps and take up considerable storage:
-      //#define TOUCH_UI_UTF8_SUPERSCRIPTS  // ¹ ² ³
-      //#define TOUCH_UI_UTF8_COPYRIGHT     // © ®
-      //#define TOUCH_UI_UTF8_GERMANIC      // ß
+      #define TOUCH_UI_UTF8_SUPERSCRIPTS    // ¹ ² ³
+      #define TOUCH_UI_UTF8_COPYRIGHT       // © ®
+      #define TOUCH_UI_UTF8_GERMANIC        // ß
       //#define TOUCH_UI_UTF8_SCANDINAVIAN  // Æ Ð Ø Þ æ ð ø þ
-      //#define TOUCH_UI_UTF8_PUNCTUATION   // « » ¿ ¡
-      //#define TOUCH_UI_UTF8_CURRENCY      // ¢ £ ¤ ¥
-      //#define TOUCH_UI_UTF8_ORDINALS      // º ª
-      //#define TOUCH_UI_UTF8_MATHEMATICS   // ± × ÷
-      //#define TOUCH_UI_UTF8_FRACTIONS     // ¼ ½ ¾
-      //#define TOUCH_UI_UTF8_SYMBOLS       // µ ¶ ¦ § ¬
+      #define TOUCH_UI_UTF8_PUNCTUATION     // « » ¿ ¡
+      #define TOUCH_UI_UTF8_CURRENCY        // ¢ £ ¤ ¥
+      #define TOUCH_UI_UTF8_ORDINALS        // º ª
+      #define TOUCH_UI_UTF8_MATHEMATICS     // ± × ÷
+      #define TOUCH_UI_UTF8_FRACTIONS       // ¼ ½ ¾
+      #define TOUCH_UI_UTF8_SYMBOLS         // µ ¶ ¦ § ¬
     #endif
 
     // Cyrillic character set, costs about 27KiB of flash
-    //#define TOUCH_UI_UTF8_CYRILLIC_CHARSET
+    #define TOUCH_UI_UTF8_CYRILLIC_CHARSET
   #endif
 
   // Use a smaller font when labels don't fit buttons
   #define TOUCH_UI_FIT_TEXT
 
   // Allow language selection from menu at run-time (otherwise use LCD_LANGUAGE)
-  //#define LCD_LANGUAGE_1 en
-  //#define LCD_LANGUAGE_2 fr
+  #define LCD_LANGUAGE_1 en
+  #define LCD_LANGUAGE_2 ru
   //#define LCD_LANGUAGE_3 de
   //#define LCD_LANGUAGE_4 es
   //#define LCD_LANGUAGE_5 it
@@ -1598,7 +1598,7 @@
   //#define TOUCH_UI_DEBUG
 
   // Developer menu (accessed by touching "About Printer" copyright text)
-  //#define TOUCH_UI_DEVELOPER_MENU
+  #define TOUCH_UI_DEVELOPER_MENU
 #endif
 
 //
@@ -1671,7 +1671,7 @@
   #define BABYSTEP_ZPROBE_OFFSET            // Combine M851 Z and Babystepping
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-    #define BABYSTEP_ZPROBE_GFX_OVERLAY     // Enable graphical overlay on Z-offset editor
+    //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
   #endif
 #endif
 
@@ -3322,7 +3322,7 @@
   //#define USER_SCRIPT_RETURN  // Return to status screen after a script
 
   #define USER_DESC_1 "Go to Z-Max"
-  #define USER_GCODE_1 "G90\nG1 Z" STRINGIFY(Z_MAX_POS) " F6000"
+  #define USER_GCODE_1 "G90\nG1 Z" STRINGIFY(Z_MAX_POS) " F2000"
 
   #define USER_DESC_2 "Move head to center"
   #define USER_GCODE_2 "G90\nG1 X165 Y165 F2000"
