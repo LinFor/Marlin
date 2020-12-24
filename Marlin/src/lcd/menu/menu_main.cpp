@@ -34,6 +34,7 @@
 #include "../../module/printcounter.h"
 #include "../../module/stepper.h"
 #include "../../sd/cardreader.h"
+#include "../../feature/caselight.h"
 
 #if HAS_GAMES && DISABLED(LCD_INFO_MENU)
   #include "game/game.h"
@@ -109,6 +110,8 @@ void menu_main() {
 
   START_MENU();
   BACK_ITEM(MSG_INFO_SCREEN);
+
+  EDIT_ITEM(bool, MSG_CASE_LIGHT, (bool*)&caselight.on, caselight.update_enabled);
 
   if (busy) {
     #if MACHINE_CAN_PAUSE
