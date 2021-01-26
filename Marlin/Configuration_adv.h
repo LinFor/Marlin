@@ -1546,7 +1546,7 @@
   //#define LCD_HAOYU_FT800CB         // Haoyu with 4.3" or 5" (480x272)
   //#define LCD_HAOYU_FT810CB         // Haoyu with 5" (800x480)
   //#define LCD_ALEPHOBJECTS_CLCD_UI  // Aleph Objects Color LCD UI
-  //#define LCD_FYSETC_TFT81050       // FYSETC with 5" (800x480)
+  #define LCD_FYSETC_TFT81050       // FYSETC with 5" (800x480)
 
   // Correct the resolution if not using the stock TFT panel.
   //#define TOUCH_UI_320x240
@@ -1557,7 +1557,7 @@
   //#define AO_EXP1_PINMAP      // AlephObjects CLCD UI EXP1 mapping
   //#define AO_EXP2_PINMAP      // AlephObjects CLCD UI EXP2 mapping
   //#define CR10_TFT_PINMAP     // Rudolph Riedel's CR10 pin mapping
-  //#define S6_TFT_PINMAP       // FYSETC S6 pin mapping
+  #define S6_TFT_PINMAP       // FYSETC S6 pin mapping
   //#define F6_TFT_PINMAP       // FYSETC F6 pin mapping
 
   //#define OTHER_PIN_LAYOUT  // Define pins manually below
